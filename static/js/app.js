@@ -14,7 +14,7 @@ function buildTable(data) {
     });
 }
 
-// 
+// snagging date range filter and building table within the new range
 function handleClick(){
     let date = d3.select("#datetime").property("values");
     let filteredData = tableData
