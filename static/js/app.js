@@ -1,6 +1,7 @@
 // import the data from data.js
 const tableData = data;
 var tbody = d3.select("tbody");
+// initial function for iterating
 function buildTable(data) {
     tbody.html("");
     data.forEach((dataRow) => {
@@ -12,3 +13,17 @@ function buildTable(data) {
         );
     });
 }
+
+// 
+function handleClick(){
+    let date = d3.select("#datetime").property("values");
+    let filteredData = tableData
+    if (data) {
+        filteredData = filteredData.filter(row => row.datetime === date);
+    };
+    buildTable(filteredData);
+}
+
+d3.select("#filter-btn").on("click", handleClick);
+
+buildTable(tableData);
